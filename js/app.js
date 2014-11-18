@@ -19,19 +19,18 @@ define(['jQuery', 'velocity'], function ($, v) {
 
             if (x1 < 0) {
                 x1 = 0;
-            } else if (x1 > halfPageWidth) {
-                x1 = halfPageWidth;
+            } else if (x1 > pageWidth) {
+                x1 = pageWidth;
             }
             
             if (y1 < 0) {
                 y1 = 0;
-            } else if (y1 > halfPageHeight) {
-                y1 = halfPageHeight;
+            } else if (y1 > pageHeight) {
+                y1 = pageHeight;
             }
 
             var distance = Math.sqrt(((x1 - x0) * (x1 - x0)) + ((y1 - y0) * (y1 - y0)));
-
-            var opacity = 0.5 + x1/halfPageWidth;
+            var opacity = 1 - y1/pageHeight;
 
             $this.velocity({
                 translateX: [ x1, x0 ],
@@ -51,12 +50,12 @@ define(['jQuery', 'velocity'], function ($, v) {
 
         $(".background-bubbles .bubble").each(function() {
             options = {};
-            options.x = (Math.random() * halfPageWidth);
+            options.x = (Math.random() * pageWidth);
             options.y = (Math.random() * pageHeight);
 
             var $this = $(this);
 
-            var opacity = 0.5 + options.x/halfPageWidth;
+            var opacity = 1 - options.y/pageHeight;
             $this.css('opacity', opacity);
 
             animate($this, options);
