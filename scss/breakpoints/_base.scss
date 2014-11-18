@@ -1,152 +1,51 @@
-body html {
-	width:100%;
-	height:100%;
+html {
+	background-color: rgb(123, 49, 52);
 }
 
-$containerWidth: 78em;
-$containerWidth2: 880px;
+.background-bubbles {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	pointer-events: none;
 
-.container {
-	@include container($containerWidth);
-	
-	min-width: 300px;
+	@include opacity(0.3);
 
-	.item-1 {
-		@include span(12 of 12);
-		background-color: red;
-	}
-	.item-2 {
-		margin-top: 10px;		
-		@include span(12 of 12);	
-		background-color: blue;
-	}
-	.item-3 {
-		margin-top: 10px;
-		@include span(12 of 12);
-		background-color: orange;
+	&.show {
+		-webkit-animation-name: opacityShow;
+		animation-name: opacityShow;
+		-webkit-animation-duration: 4s;
+		animation-duration: 4s;
 	}
 
-	.item-1, .item-2, .item-3 {
-		.sub-container {
-			text-align: justify;
-			padding:30px;
+	.bubble {
 
-			overflow: auto;
+		display: none;
+		position: fixed;
+		border-radius: 50%;
+		background-color:white;
+		margin: 0 auto;
 
-			.sub-item1 {
-				@include span(12 of 12);
-					margin-top: 0px;
-				.center {
-					margin: 0 auto;
-					width:350px;
+		border-style:solid;
+		border-width:1px;
 
-					.img2 {
-						display: none;
-					}
-				}
-			}
+		&.small {
+			width: 75px;
+			height: 75px;
+			border-color: #B5B5B5;
+		}
 
-			.sub-item2 {
-				@include span(12 of 12);
-			}
+		&.large {
+			width: 115px;
+			height: 115px;
+			border-color: #B5B5B5;
+		}
+
+		&.tiny {
+			width: 30px;
+			height: 30px;
+			border-color: #B5B5B5;
 		}
 	}
-}
-
-@include breakpoint($containerWidth2) {
-	.container {
-
-		@include container(800px);
-
-		.item-1 {
-			.sub-container {
-				padding:30px;
-
-				.sub-item1 {
-					@include span(11 of 24);
-					margin-top: 30px;
-
-					.center {
-						.img2 {
-							margin-top: 30px;
-							display: inline-block;
-						}
-					}
-				}
-
-				.sub-item2 {
-					@include span(11 at 14 of 24);
-				}			
-			}
-		}
-	}
-}
-
-@include breakpoint($containerWidth) {
-	.container {
-		@include container($containerWidth);
-
-		.item-1 {
-			@include span(4 of 12);
-			background-color: red;
-		}
-		.item-2 {
-			margin-top: 0px;					
-			@include span(4 at 5 of 12);		
-			background-color: blue;
-		}
-		.item-3 {
-			margin-top: 0px;		
-			@include span(4 at 9 of 12);		
-			background-color: orange;
-		}	
-	}
-
-	.container .item-1 {
-		.sub-container {
-			padding:20px;
-
-			.sub-item1 {
-				@include span(12 of 12);
-				margin-top: 0px;	
-
-				.center {
-					.img2 {
-						display: none;
-					}
-				}			
-			}
-
-			.sub-item2 {
-				@include span(12 of 12);
-			}			
-		}
-	}
-
-	.container .item-2 {
-		.sub-container {
-			padding:20px;
-
-			.sub-item1 {
-				@include span(12 of 12);				
-			}
-			.sub-item2 {
-				@include span(12 of 12);				
-			}						
-		}		
-	}	
-
-	.container .item-3 {
-		.sub-container {
-			padding:20px;
-
-			.sub-item1 {
-				@include span(12 of 12);
-			}	
-			.sub-item2 {
-				@include span(12 of 12);				
-			}					
-		}		
-	}	
 }
 
