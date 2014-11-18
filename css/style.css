@@ -765,22 +765,21 @@ html {
   margin: 0 auto;
   border-style: solid;
   border-width: 1px;
+  border-width: 0;
+  border-bottom: solid 10px orange;
 }
-/* line 34, ../scss/breakpoints/_base.scss */
+/* line 37, ../scss/breakpoints/_base.scss */
 .background-bubbles .bubble.small {
   width: 75px;
   height: 75px;
-  border-color: #B5B5B5;
 }
-/* line 40, ../scss/breakpoints/_base.scss */
+/* line 43, ../scss/breakpoints/_base.scss */
 .background-bubbles .bubble.large {
   width: 115px;
   height: 115px;
-  border-color: #B5B5B5;
 }
-/* line 46, ../scss/breakpoints/_base.scss */
+/* line 49, ../scss/breakpoints/_base.scss */
 .background-bubbles .bubble.tiny {
   width: 30px;
   height: 30px;
-  border-color: #B5B5B5;
 }
