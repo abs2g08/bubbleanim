@@ -6,41 +6,43 @@ define(['jQuery', 'velocity'], function ($, v) {
         var pageHeight = $(window).height() || 800;
         var halfPageHeight = pageHeight / 2;
         var range = 100;
-        var treacle = 250;
         
         var animate = function animate($this, options) {
             var x0 = options.x;
             var y0 = options.y;
+            var distance;
+            var opacity;
+            var treacle;
 
-            $this.css('display', 'block');
-
-            var x1 = x0 + (Math.random() * range * 2) - range;
-            var y1 = y0 + (Math.random() * range * 2) - range;
-
-            if (x1 < 0) {
-                x1 = 0;
-            } else if (x1 > pageWidth) {
-                x1 = pageWidth;
-            }
-            
-            if (y1 < 0) {
-                y1 = 0;
-            } else if (y1 > pageHeight) {
+            if(y0 == 0) {
                 y1 = pageHeight;
+                distance = 0;
+                opacity = [0.2, 1];
+            } else {
+                y1 = 0;
+                distance = Math.sqrt((y1 - y0) * (y1 - y0));
+                opacity = [1, 0.2];
             }
 
-            var distance = Math.sqrt(((x1 - x0) * (x1 - x0)) + ((y1 - y0) * (y1 - y0)));
-            var opacity = 1 - y1/pageHeight;
+            x1 = x0;
+
+            if($this.hasClass('tiny')) {
+                treacle = 50;
+            } else if ($this.hasClass('small')) {
+                treacle = 20;
+            } else if ($this.hasClass('large')) {
+                treacle = 10;
+            }
 
             $this.velocity({
-                translateX: [ x1, x0 ],
                 translateY: [ y1, y0 ],
-                opacity: opacity,
+                translateX: [ x1, x0 ],
+                opacity: opacity
             }, {
                 duration: treacle * distance,
                 complete: function() {
                   setTimeout( function() {
-                    options.x = x1;
+                    options.y = y1;
                     options.y = y1;
                     animate($this, options);
                   }, 500);
@@ -54,9 +56,6 @@ define(['jQuery', 'velocity'], function ($, v) {
             options.y = (Math.random() * pageHeight);
 
             var $this = $(this);
-
-            var opacity = 1 - options.y/pageHeight;
-            $this.css('opacity', opacity);
 
             animate($this, options);
         });
