@@ -773,12 +773,12 @@ html {
   width: 75px;
   height: 75px;
 }
-/* line 43, ../scss/breakpoints/_base.scss */
+/* line 42, ../scss/breakpoints/_base.scss */
 .background-bubbles .bubble.large {
   width: 115px;
   height: 115px;
 }
-/* line 49, ../scss/breakpoints/_base.scss */
+/* line 47, ../scss/breakpoints/_base.scss */
 .background-bubbles .bubble.tiny {
   width: 30px;
   height: 30px;
