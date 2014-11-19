@@ -3,23 +3,66 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    sass: {                            
+      dist: {                       
+        options: {
+          style: 'expanded'
+        },
+        files: {
+          'dist/main.css': 'scss/*.scss',
+        }
+      }
+    },
+    concat: {
+      options: {
+        // define a string to put between each file in the concatenated output
+        separator: ';'
+      },
+      dist: {
+        // the files to concatenate
+        src: ['js/**/*.js'],
+        // the location of the resulting JS file
+        dest: 'dist/<%= pkg.name %>.js'
+      }
+    },
     uglify: {
       options: {
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+        // the banner is inserted at the top of the output
+        banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
       },
-      build: {
-        src: 'src/<%= pkg.name %>.js',
-        dest: 'build/<%= pkg.name %>.min.js'
+      dist: {
+        files: {
+          'dist/<%= pkg.name %>.min.js': ['main.min.js']
+        }
+      }
+    },
+    copy: {
+      main: {
+        files: [
+          {expand: true, src: ['robots.txt', 'crossdomain.xml', '404.html'], dest: 'dest/'},
+        ],
+      },
+    },
+    preprocess : {
+      options: {
+        context : {
+          DEBUG: false
+        }
+      },
+      dist : {
+        src : 'index.html',
+        dest : 'dist/index.html'
       }
     }
+
   });
 
-  // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify');
-
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-preprocess');
 
-  // Default task(s).
-  grunt.registerTask('default', ['uglify']);
+  grunt.registerTask('default', ['sass', 'concat', 'uglify', 'copy', 'preprocess']);
 
 };
