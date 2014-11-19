@@ -21,6 +21,7 @@ module.exports = function(grunt) {
         }
       }
     },
+
     concat: {
       options: {
         // define a string to put between each file in the concatenated output
@@ -33,6 +34,20 @@ module.exports = function(grunt) {
         dest: 'js/app.min.js'
       }
     },
+
+    requirejs: {
+      app: {
+        options: {
+          findNestedDependencies: true,
+          mainConfigFile: 'js/main.js',
+          baseUrl : 'js',
+          name : 'app',
+          out : 'app.min.js',
+          optimize : 'uglify',
+        }
+      }
+    },
+
     uglify: {
       options: {
         // the banner is inserted at the top of the output
@@ -70,6 +85,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-preprocess');
 
-  grunt.registerTask('default', ['compass', 'concat', 'uglify', 'copy', 'preprocess']);
+  grunt.registerTask('default', ['compass', 'concat', 'copy', 'preprocess']);
 
 };
