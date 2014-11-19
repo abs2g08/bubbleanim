@@ -1,0 +1,50 @@
+html {
+	background-color: rgb(123, 49, 52);
+}
+
+.background-bubbles {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	pointer-events: none;
+
+	@include opacity(0.3);
+
+	&.show {
+		-webkit-animation-name: opacityShow;
+		animation-name: opacityShow;
+		-webkit-animation-duration: 4s;
+		animation-duration: 4s;
+	}
+
+	.bubble {
+
+		display: none;
+		position: fixed;
+		border-radius: 50%;
+		background-color:white;
+		margin: 0 auto;
+
+		border-style:solid;
+		border-width:1px;
+
+		&.small {
+			width: 75px;
+			height: 75px;
+			border-color: #B5B5B5;
+		}
+
+		&.large {
+			width: 115px;
+			height: 115px;
+			border-color: #B5B5B5;
+		}
+
+		&.tiny {
+			width: 30px;
+			height: 30px;
+			border-color: #B5B5B5;
+		}
+	}
+}
