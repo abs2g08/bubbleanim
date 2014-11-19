@@ -9,7 +9,15 @@ module.exports = function(grunt) {
           style: 'expanded'
         },
         files: {
-          'dist/main.css': 'scss/*.scss',
+          'dist/style.css': 'scss/style.scss',
+        }
+      }
+    },
+    compass: {                  // Task
+      dist: {                   // Target
+        options: {              // Target options
+          sassDir: 'sass',
+          cssDir: 'css',
         }
       }
     },
@@ -22,7 +30,7 @@ module.exports = function(grunt) {
         // the files to concatenate
         src: ['js/**/*.js'],
         // the location of the resulting JS file
-        dest: 'dist/<%= pkg.name %>.js'
+        dest: 'js/app.min.js'
       }
     },
     uglify: {
@@ -32,21 +40,21 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'dist/<%= pkg.name %>.min.js': ['main.min.js']
+          'js/app.min.js': ['js/app.min.js']
         }
       }
     },
     copy: {
       main: {
         files: [
-          {expand: true, src: ['robots.txt', 'crossdomain.xml', '404.html'], dest: 'dest/'},
+          {expand: true, src: ['robots.txt', 'crossdomain.xml', '404.html', 'css/style.css', 'js/app.min.js'], dest: 'dist/'},
         ],
       },
     },
     preprocess : {
       options: {
         context : {
-          DEBUG: false
+          prod: true
         }
       },
       dist : {
@@ -54,15 +62,14 @@ module.exports = function(grunt) {
         dest : 'dist/index.html'
       }
     }
-
   });
 
+  grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-preprocess');
 
-  grunt.registerTask('default', ['sass', 'concat', 'uglify', 'copy', 'preprocess']);
+  grunt.registerTask('default', ['compass', 'concat', 'uglify', 'copy', 'preprocess']);
 
 };
