@@ -41,9 +41,11 @@ module.exports = function(grunt) {
           findNestedDependencies: true,
           mainConfigFile: 'js/main.js',
           baseUrl : 'js',
-          name : 'app',
-          out : 'app.min.js',
-          optimize : 'uglify',
+          name : 'main',
+          out : 'dist/js/app.min.js',
+          include:  ['vendor/modernizr-2.6.2.min.js'],
+          // optimize : 'uglify',
+          optimize: 'none'
         }
       }
     },
@@ -62,7 +64,7 @@ module.exports = function(grunt) {
     copy: {
       main: {
         files: [
-          {expand: true, src: ['robots.txt', 'crossdomain.xml', '404.html', 'css/style.css', 'js/app.min.js'], dest: 'dist/'},
+          {expand: true, src: ['robots.txt', 'crossdomain.xml', '404.html', 'css/style.css', 'js/app.min.js', 'js/vendor/require.js'], dest: 'dist/'},
         ],
       },
     },
@@ -84,7 +86,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-preprocess');
+  grunt.loadNpmTasks('grunt-contrib-requirejs');
 
-  grunt.registerTask('default', ['compass', 'concat', 'copy', 'preprocess']);
+  grunt.registerTask('default', ['compass', 'requirejs', 'copy', 'preprocess']);
 
 };
