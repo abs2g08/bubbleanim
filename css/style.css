@@ -281,26 +281,18 @@ html {
   background-color: #7b3134;
 }
 
-/* line 5, ../scss/_main.scss */
+/* line 4, ../scss/_main.scss */
 .background-bubbles {
   position: relative;
   width: 100%;
   height: 100%;
   z-index: 0;
   pointer-events: none;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
-  opacity: 0.3;
 }
-/* line 14, ../scss/_main.scss */
-.background-bubbles.show {
-  -webkit-animation-name: opacityShow;
-  animation-name: opacityShow;
-  -webkit-animation-duration: 4s;
-  animation-duration: 4s;
-}
-/* line 21, ../scss/_main.scss */
+/* line 11, ../scss/_main.scss */
 .background-bubbles .bubble {
-  display: none;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
   position: fixed;
   border-radius: 50%;
   background-color: white;
@@ -308,19 +300,19 @@ html {
   border-style: solid;
   border-width: 1px;
 }
-/* line 32, ../scss/_main.scss */
+/* line 23, ../scss/_main.scss */
 .background-bubbles .bubble.small {
   width: 75px;
   height: 75px;
   border-color: #B5B5B5;
 }
-/* line 38, ../scss/_main.scss */
+/* line 29, ../scss/_main.scss */
 .background-bubbles .bubble.large {
   width: 115px;
   height: 115px;
   border-color: #B5B5B5;
 }
-/* line 44, ../scss/_main.scss */
+/* line 35, ../scss/_main.scss */
 .background-bubbles .bubble.tiny {
   width: 30px;
   height: 30px;

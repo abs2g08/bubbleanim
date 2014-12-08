@@ -9,18 +9,10 @@ html {
 	z-index: 0;
 	pointer-events: none;
 
-	@include opacity(0.3);
-
-	&.show {
-		-webkit-animation-name: opacityShow;
-		animation-name: opacityShow;
-		-webkit-animation-duration: 4s;
-		animation-duration: 4s;
-	}
-
 	.bubble {
 
-		display: none;
+		@include opacity(0);
+
 		position: fixed;
 		border-radius: 50%;
 		background-color:white;

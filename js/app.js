@@ -1,5 +1,14 @@
 define(['jQuery', 'velocity'], function ($, v) {
 
+    window.requestAnimFrame = (function(){
+        return  window.requestAnimationFrame       ||
+                window.webkitRequestAnimationFrame ||
+                window.mozRequestAnimationFrame    ||
+                function( callback ){
+                    window.setTimeout(callback, 1000 / 60);
+                };
+    })();
+
 	var startBubbleAnimation = function() {
         var pageWidth = $(window).width() > 850 ? $(window).width() : 2000;
         var halfPageWidth = pageWidth / 2;
@@ -39,11 +48,11 @@ define(['jQuery', 'velocity'], function ($, v) {
             }, {
                 duration: treacle * distance,
                 complete: function() {
-                  setTimeout( function() {
                     options.x = x1;
                     options.y = y1;
-                    animate($this, options);
-                  }, 500);
+                    requestAnimFrame(function() {
+                      animate($this, options);
+                    });
                 }
             });
         }

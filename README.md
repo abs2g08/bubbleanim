@@ -1,6 +1,8 @@
 # Bubbleanim	
 
-Is an ambient bubble animation using [Velocity.js](http://julian.com/research/velocity/). There are three different branches: master, snowflake, and (my favourite) beer.
+Is an an ambient bubble demo using [Velocity.js](http://julian.com/research/velocity/). There are three different branches: master, snowflake, and (my favourite) beer.
+
+At the moment I've put the animation into a html5 boilerplate but I'll package the src into a discrete plugin at later stage.
 
 ## Prerequisites
 
