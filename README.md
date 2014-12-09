@@ -4,11 +4,11 @@ Is an an ambient bubble demo using [Velocity.js](http://julian.com/research/velo
 
 **master**
 
-[Maseter](http://i.imgur.com/AteVNRN.png?1)
+![Maseter](http://i.imgur.com/AteVNRN.png?1)
 
 **beer**
 
-[Beer](http://i.imgur.com/svpNy0R.png?1)
+![Beer](http://i.imgur.com/svpNy0R.png?1)
 
 At the moment I've put the animation into a html5 boilerplate but I'll package the src into a discrete plugin at later stage.
 
