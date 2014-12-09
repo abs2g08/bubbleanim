@@ -2,6 +2,14 @@
 
 Is an an ambient bubble demo using [Velocity.js](http://julian.com/research/velocity/). There are three different branches: master, snowflake, and (my favourite) beer.
 
+**master**
+
+[Maseter](http://i.imgur.com/AteVNRN.png?1)
+
+**beer**
+
+[Beer](http://i.imgur.com/svpNy0R.png?1)
+
 At the moment I've put the animation into a html5 boilerplate but I'll package the src into a discrete plugin at later stage.
 
 ## Prerequisites
