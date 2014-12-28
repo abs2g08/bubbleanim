@@ -1,10 +1,10 @@
 # Bubbleanim	
 
-Is an an ambient bubble demo using [Velocity.js](http://julian.com/research/velocity/). There are three different branches: master, snowflake, and (my favourite) beer.
+Is an an ambient bubble demo using [Velocity.js](http://julian.com/research/velocity/). There are two different branches: master and (my favourite) beer.
 
 **master**
 
-![Maseter](http://i.imgur.com/AteVNRN.png?1)
+![Master](http://i.imgur.com/AteVNRN.png?1)
 
 **beer**
 
@@ -14,7 +14,7 @@ At the moment I've put the animation into a html5 boilerplate but I'll package t
 
 ## Prerequisites
 
-You will need the following things properly installed on your computer.
+You will need the following installed on your computer.
 
 * [Git](http://git-scm.com/)
 * [Node.js](http://nodejs.org/) (with NPM)
