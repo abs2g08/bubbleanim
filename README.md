@@ -1,6 +1,6 @@
 # Bubbleanim	
 
-Is an an ambient bubble demo using [Velocity.js](http://julian.com/research/velocity/). There are two different branches: master and (my favourite) beer.
+Is an ambient bubble demo using [Velocity.js](http://julian.com/research/velocity/). There are two different branches: master and (my favourite) beer.
 
 **master**
 
